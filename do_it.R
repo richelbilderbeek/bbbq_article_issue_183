@@ -16,6 +16,8 @@ analyse_epitopes <- function(
   epitope_sequences,
   positions = c(1, 2, 3, -3, -2, -1)
 ) {
+  testthat::expect_true(is.character(epitope_sequences))
+  testthat::expect_true(is.numeric(positions))
   # Store sequences as tibble, as stringr needs it
   char_tibble <- tibble::tibble(
     epitope_sequence = epitope_sequences
