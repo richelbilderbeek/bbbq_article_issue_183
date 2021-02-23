@@ -24,3 +24,7 @@ cp ../bbbq_article_issue_157/tmhs_tmhmm_1.csv .
 ```
 
 
+## How is the logo generated?
+
+Using [WebLogo](https://weblogo.berkeley.edu/logo.cgi)
+
