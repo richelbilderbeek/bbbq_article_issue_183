@@ -74,37 +74,3 @@ dev.off()
 t_wide <- analyse_epitopes(epitope_sequences = t_unique_tmhs_tmhmm_1$epitope_sequence)
 t_wide
 readr::write_csv(t_wide, "tmh.csv")
-
-
-
-#
-# Prepare for +5 WebLogo figure, https://weblogo.berkeley.edu/logo.cgi)
-#
-
-# Take all TMH sequences
-# Align on the fifth AA
-longest_epitope_length <- max(nchar(t_unique_tmhs_tmhmm_1$epitope_sequence))
-pureseqtmr::save_tibble_as_fasta_file(
-  tibble::tibble(
-    name = t_unique_tmhs_tmhmm_1$gene_name,
-    sequence = stringr::str_pad(
-      string = t_unique_tmhs_tmhmm_1$epitope_sequence,
-      width = longest_epitope_length,
-      side = "right",
-      pad = "-"
-    )
-  ),
-  "~/plus_5.fasta"
-)
-pureseqtmr::save_tibble_as_fasta_file(
-  tibble::tibble(
-    name = t_unique_tmhs_tmhmm_1$gene_name,
-    sequence = stringr::str_pad(
-      string = t_unique_tmhs_tmhmm_1$epitope_sequence,
-      width = longest_epitope_length,
-      side = "left",
-      pad = "-"
-    )
-  ),
-  "~/minus_5.fasta"
-)
